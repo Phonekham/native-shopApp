@@ -12,16 +12,18 @@ import {
 
 import productReducer from "./store/reducers/products";
 import cartRedcer from "./store/reducers/cart";
+import orderReducer from "./store/reducers/orders";
 import ShopNavigator from "./navigation/ShopNavigator";
 
 enableScreens();
 
 const rootReducer = combineReducers({
   products: productReducer,
-  cart: cartRedcer
+  cart: cartRedcer,
+  orders: orderReducer
 });
 
-const store = createStore(rootReducer, devToolsEnhancer());
+const store = createStore(rootReducer, composeWithDevTools());
 
 const fetchFonts = () => {
   return Font.loadAsync({
