@@ -10,12 +10,14 @@
   "dependencies": {
     "@react-navigation/core": "^5.0.0-alpha.24",
     "@react-navigation/native": "^5.0.0-alpha.16",
-    "expo": "^33.0.0",
+    "expo": "^35.0.0",
+    "expo-font": "^7.0.0",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-gesture-handler": "~1.2.1",
     "react-native-reanimated": "1.0.1",
+    "react-native-screens": "^2.0.0-alpha.12",
     "react-native-web": "^0.11.4",
     "react-navigation": "^4.0.10",
     "react-navigation-header-buttons": "^3.0.4",
@@ -24,7 +26,7 @@
     "redux": "^4.0.4"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.1.1"
+    "babel-preset-expo": "^7.1.0"
   },
   "private": true
 }

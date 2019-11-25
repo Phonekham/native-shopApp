@@ -15,6 +15,8 @@ const ProductNavigator = createStackNavigator(
       headerStyle: {
         backgroundColor: Colors.primary
       },
+      headerTitleStyle: { fontFamily: "open-sans-bold" },
+      headerBackTitleStyle: { fontFamily: "open-sans" },
       headerTintColor: "white"
     }
   }
