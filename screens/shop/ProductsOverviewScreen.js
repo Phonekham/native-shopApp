@@ -37,6 +37,17 @@ const ProductsOverviewScreen = props => {
 ProductsOverviewScreen.navigationOptions = navData => {
   return {
     headerTitle: "All Product",
+    headerLeft: (
+      <HeaderButtons HeaderButtonComponent={HeaderBotton}>
+        <Item
+          title="Menu"
+          iconName="md-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        ></Item>
+      </HeaderButtons>
+    ),
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderBotton}>
         <Item
