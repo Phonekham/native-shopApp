@@ -1,13 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, Button } from "react-native";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ScrollView } from "react-native-gesture-handler";
+
+import * as cartActions from "../../store/actions/cart";
 
 const ProductDetailScreen = props => {
   const productId = props.navigation.getParam("productId");
   const selectedProduct = useSelector(state =>
     state.products.availableProducts.find(prod => prod.id === productId)
   );
+
+  const dispatch = useDispatch();
 
   return (
     <ScrollView>
@@ -16,7 +20,12 @@ const ProductDetailScreen = props => {
         source={{ uri: selectedProduct.imageUrl }}
       ></Image>
       <View style={styles.actions}>
-        <Button title="Add To Cart" onPress={() => {}}></Button>
+        <Button
+          title="Add To Cart"
+          onPress={() => {
+            dispatch(cartActions.addToCart(selectedProduct));
+          }}
+        ></Button>
       </View>
       <Text style={styles.price}>{selectedProduct.price.toFixed(2)}</Text>
       <Text style={styles.description}>{selectedProduct.description}</Text>
