@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 35212,
-  "expoServerNgrokUrl": "https://pz-b36.anonymous.native-shopapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.pz-b36.anonymous.native-shopapp.exp.direct",
-  "ngrokPid": 36744
+  "packagerPort": 19001,
+  "packagerPid": 21780,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
