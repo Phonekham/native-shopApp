@@ -1,21 +1,16 @@
 import React, { useState } from "react";
-// import devToolsEnhancer from "remote-redux-devtools";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import { enableScreens } from "react-native-screens";
-import {
-  composeWithDevTools,
-  devToolsEnhancer
-} from "redux-devtools-extension";
 
 import productReducer from "./store/reducers/products";
 import cartRedcer from "./store/reducers/cart";
 import orderReducer from "./store/reducers/orders";
 import ShopNavigator from "./navigation/ShopNavigator";
 
-enableScreens();
+// enableScreens();
 
 const rootReducer = combineReducers({
   products: productReducer,
@@ -23,7 +18,7 @@ const rootReducer = combineReducers({
   orders: orderReducer
 });
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(rootReducer);
 
 const fetchFonts = () => {
   return Font.loadAsync({
