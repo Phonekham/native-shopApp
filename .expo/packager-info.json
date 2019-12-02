@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": null,
-  "packagerPid": null,
+  "packagerPort": 19004,
+  "packagerPid": 15984,
   "expoServerNgrokUrl": "https://vd-gv2.phonekham.native-shopapp.exp.direct",
   "packagerNgrokUrl": "https://packager.vd-gv2.phonekham.native-shopapp.exp.direct",
-  "ngrokPid": 23988
+  "ngrokPid": 4732
 }
