@@ -3,7 +3,7 @@
   "expoServerPort": 19000,
   "packagerPort": 19001,
   "packagerPid": 15128,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://jw-3ug.phonekham.native-shopapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.jw-3ug.phonekham.native-shopapp.exp.direct",
+  "ngrokPid": 2972
 }
