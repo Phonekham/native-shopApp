@@ -1,10 +1,11 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, Button } from "react-native";
 import { useSelector } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 import HeaderBotton from "../../components/UI/HeaderButton";
 import ProductItem from "../../components/shop/ProductItem";
+import Colors from "../../constants/Colors";
 import * as productActions from "../../store/actions/products";
 
 const UserProductsScreen = props => {
