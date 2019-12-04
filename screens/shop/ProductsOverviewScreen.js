@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { FlatList, Button } from "react-native";
+import React, { useEffect, useState, useCallback } from "react";
+import { FlatList, Button, ActivityIndicator, View, Text } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
@@ -10,12 +10,25 @@ import HeaderBotton from "../../components/UI/HeaderButton";
 import Colors from "../../constants/Colors";
 
 const ProductsOverviewScreen = props => {
+  const [isLoading, setIsloading] = useState(false);
+  const [error, setError] = useState();
   const products = useSelector(state => state.products.availableProducts);
   const dispatch = useDispatch();
 
+  const loadProducts = useCallback(async () => {
+    setError(null);
+    setIsloading(true);
+    try {
+      await dispatch(productsActions.fetchProducts());
+    } catch (err) {
+      setError(err.message);
+    }
+    setIsloading(false);
+  }, [dispatch, setIsloading, setError]);
+
   useEffect(() => {
-    dispatch(productsActions.fetchProducts());
-  }, []);
+    loadProducts();
+  }, [dispatch, loadProducts]);
 
   const selectedItemHandler = (id, title) => {
     props.navigation.navigate("ProductDetail", {
@@ -23,6 +36,38 @@ const ProductsOverviewScreen = props => {
       productTitle: title
     });
   };
+
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator
+          size="large"
+          color={Colors.primary}
+        ></ActivityIndicator>
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>An error occurred</Text>
+        <Button
+          title="Try again"
+          onPress={loadProducts}
+          color={Colors.primary}
+        ></Button>
+      </View>
+    );
+  }
+
+  if (!isLoading && products.length === 0) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>No Products found</Text>
+      </View>
+    );
+  }
 
   return (
     <FlatList
