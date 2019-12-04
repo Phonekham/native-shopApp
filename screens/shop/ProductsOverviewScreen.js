@@ -11,25 +11,26 @@ import Colors from "../../constants/Colors";
 
 const ProductsOverviewScreen = props => {
   const [isLoading, setIsloading] = useState(false);
+  const [isRefreashing, setIsRefreshing] = useState(false);
   const [error, setError] = useState();
   const products = useSelector(state => state.products.availableProducts);
   const dispatch = useDispatch();
 
   const loadProducts = useCallback(async () => {
-    console.log("load product");
-
     setError(null);
-    setIsloading(true);
+    setIsRefreshing(true);
     try {
       await dispatch(productsActions.fetchProducts());
     } catch (err) {
       setError(err.message);
     }
-    setIsloading(false);
+    setIsRefreshing(false);
   }, [dispatch, setIsloading, setError]);
 
   useEffect(() => {
-    loadProducts();
+    loadProducts().then(() => {
+      setIsloading(false);
+    });
   }, [dispatch, loadProducts]);
   useEffect(() => {
     const willFocusSub = props.navigation.addListener(
@@ -82,6 +83,8 @@ const ProductsOverviewScreen = props => {
 
   return (
     <FlatList
+      onRefresh={loadProducts}
+      refreshing={isRefreashing}
       data={products}
       keyExtractor={item => item.id}
       renderItem={itemData => (
