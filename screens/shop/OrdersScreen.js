@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, View, StyleSheet, ActivityIndicator } from "react-native";
+import {
+  FlatList,
+  View,
+  StyleSheet,
+  ActivityIndicator,
+  Text
+} from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 

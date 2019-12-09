@@ -1,9 +1,9 @@
 {
   "expoServerNgrokUrl": "https://t6-bie.phonekham.native-shopapp.exp.direct",
   "packagerNgrokUrl": "https://packager.t6-bie.phonekham.native-shopapp.exp.direct",
-  "ngrokPid": 26936,
+  "ngrokPid": 18752,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 30476
+  "packagerPort": 19004,
+  "packagerPid": 23600
 }
